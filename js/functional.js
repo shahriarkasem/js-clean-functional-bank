@@ -15,11 +15,17 @@ function getInnerText(id){
 }
 // updateBalance
 function getUpdated(id, amountValue){
+    /*
     const textField = document.getElementById(id);
     const amountText = textField.innerText;
     const amount = parseFloat(amountText);
+    */
+    const amount = getInnerText(id);
     const totalValue = amount + amountValue;
+    /*
     textField.innerText = totalValue;
+    */
+    document.getElementById(id).innerText = totalValue;
     // return totalValue;
 }
 // updateTotalBalance or remainingBalance

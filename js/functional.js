@@ -42,6 +42,13 @@ function updateTotalBalance(amount, isAdding){
     }
     textField.innerText = newTotalAmount;
 }
+// getInnerText
+function getInnerText(id){
+    const innerTextField = document.getElementById(id);
+    const innerText = innerTextField.innerText;
+    const innerAmount = parseFloat(innerText);
+    return innerAmount;
+}
 
 // update deposit 
 document.getElementById('deposit-button').addEventListener('click', function(){
@@ -54,7 +61,8 @@ document.getElementById('deposit-button').addEventListener('click', function(){
 // update withdraw
 document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawAmount = getInputValue('withdraw-input');
-    if(withdrawAmount > 0){
+    const balance = getInnerText('balance-total');
+    if(withdrawAmount > 0 && balance >= withdrawAmount){
         getUpdated('withdraw-total', withdrawAmount);
         updateTotalBalance(withdrawAmount, false)
     }

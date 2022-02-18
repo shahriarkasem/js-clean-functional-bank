@@ -46,12 +46,16 @@ function updateTotalBalance(amount, isAdding){
 // update deposit 
 document.getElementById('deposit-button').addEventListener('click', function(){
     const depositAmount = getInputValue('deposit-input');
-    getUpdated('deposit-total', depositAmount);
-    updateTotalBalance(depositAmount, true);
+    if(depositAmount > 0){
+        getUpdated('deposit-total', depositAmount);
+        updateTotalBalance(depositAmount, true);
+    }
 })
 // update withdraw
 document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawAmount = getInputValue('withdraw-input');
-    getUpdated('withdraw-total', withdrawAmount);
-    updateTotalBalance(withdrawAmount, false)
+    if(withdrawAmount > 0){
+        getUpdated('withdraw-total', withdrawAmount);
+        updateTotalBalance(withdrawAmount, false)
+    }
 })

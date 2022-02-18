@@ -30,10 +30,13 @@ function getUpdated(id, amountValue){
 }
 // updateTotalBalance or remainingBalance
 function updateTotalBalance(amount, isAdding){
+    /*
     const textField = document.getElementById('balance-total');
     const amountText = textField.innerText;
     const previousAmount = parseFloat(amountText);
-    
+    */
+    const previousAmount = getInnerText('balance-total');
+
     /*
     if(isAdding == true){
         const newTotalAmount = previousAmount + amount;
@@ -53,7 +56,11 @@ function updateTotalBalance(amount, isAdding){
     else if(isAdding == false){
         newTotalAmount = previousAmount - amount;
     }
+    
+    /*
     textField.innerText = newTotalAmount;
+    */
+   document.getElementById('balance-total').innerText = newTotalAmount;
 }
 
 // update deposit 

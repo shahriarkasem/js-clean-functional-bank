@@ -6,6 +6,13 @@ function getInputValue(id){
     inputIdField.value = '';
     return inputValue;
 }
+// getInnerText
+function getInnerText(id){
+    const innerTextField = document.getElementById(id);
+    const innerText = innerTextField.innerText;
+    const innerAmount = parseFloat(innerText);
+    return innerAmount;
+}
 // updateBalance
 function getUpdated(id, amountValue){
     const textField = document.getElementById(id);
@@ -42,13 +49,6 @@ function updateTotalBalance(amount, isAdding){
     }
     textField.innerText = newTotalAmount;
 }
-// getInnerText
-function getInnerText(id){
-    const innerTextField = document.getElementById(id);
-    const innerText = innerTextField.innerText;
-    const innerAmount = parseFloat(innerText);
-    return innerAmount;
-}
 
 // update deposit 
 document.getElementById('deposit-button').addEventListener('click', function(){
@@ -62,7 +62,7 @@ document.getElementById('deposit-button').addEventListener('click', function(){
 document.getElementById('withdraw-button').addEventListener('click', function(){
     const withdrawAmount = getInputValue('withdraw-input');
     const balance = getInnerText('balance-total');
-    if(withdrawAmount > 0 && balance >= withdrawAmount){
+    if(withdrawAmount > 0 && withdrawAmount <= balance){
         getUpdated('withdraw-total', withdrawAmount);
         updateTotalBalance(withdrawAmount, false)
     }
